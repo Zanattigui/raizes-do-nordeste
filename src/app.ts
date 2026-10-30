@@ -4,6 +4,7 @@ import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import { env } from "./config/env";
 import { errorHandler } from "./errors/errorHandler";
+import { authRoutes } from "./routes/authRoutes";
 
 export function buildApp() {
   const app = fastify({ logger: true });
@@ -29,6 +30,8 @@ export function buildApp() {
     secret: env.JWT_SECRET,
     sign: { expiresIn: env.JWT_EXPIRES_IN },
   });
+
+  app.register(authRoutes);
 
   app.setErrorHandler(errorHandler);
 
