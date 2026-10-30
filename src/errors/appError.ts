@@ -1,4 +1,4 @@
-export type DetalheErro = { field: string; issue: string }
+export type DetalheErro = { field: string; issue: string };
 
 export class AppError extends Error {
   constructor(
@@ -7,6 +7,6 @@ export class AppError extends Error {
     message: string,
     public details: DetalheErro[] = [],
   ) {
-    super(message)
+    super(message);
   }
 }
