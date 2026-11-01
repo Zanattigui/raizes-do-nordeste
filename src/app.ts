@@ -5,6 +5,7 @@ import fastifySwaggerUi from "@fastify/swagger-ui";
 import { env } from "./config/env";
 import { errorHandler } from "./errors/errorHandler";
 import { authRoutes } from "./routes/authRoutes";
+import { pedidoRoutes } from "./routes/pedidoRoutes";
 import { unidadeRoutes } from "./routes/unidadeRoutes";
 
 export function buildApp() {
@@ -34,6 +35,7 @@ export function buildApp() {
 
   app.register(authRoutes);
   app.register(unidadeRoutes);
+  app.register(pedidoRoutes);
 
   app.setErrorHandler(errorHandler);
 

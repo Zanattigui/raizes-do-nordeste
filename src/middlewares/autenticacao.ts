@@ -3,7 +3,11 @@ import "@fastify/jwt";
 import { AppError } from "../errors/appError";
 import { Perfil } from "../repositories/usuarioRepository";
 
-type UsuarioToken = { id: number; perfil: Perfil; unidadeId: number | null };
+export type UsuarioToken = {
+  id: number;
+  perfil: Perfil;
+  unidadeId: number | null;
+};
 
 // diz ao TypeScript o que vai dentro do token e o formato do request.user
 declare module "@fastify/jwt" {
